@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Activity class for Submit Amount screen.
@@ -17,8 +18,12 @@ public class SubmitAmountActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		String username = (String) getIntent().getExtras().get("USERNAME");
 		setContentView(R.layout.activity_submit_amount);
+		String username = (String) getIntent().getExtras().get("USERNAME");
+		if (null != username) {
+			TextView welcomeTextView = (TextView) findViewById(R.id.welcomeMessageId);
+			welcomeTextView.setText("Welcome " + username + "!");
+		}
 	}
 
 	@Override
@@ -38,9 +43,7 @@ public class SubmitAmountActivity extends Activity {
 		EditText amountEditText = (EditText) findViewById(R.id.amountId);
 		String amount = amountEditText.getText().toString();
 		System.out.println(amount);
-		String name = new GetGoogleAccount(getSystemService(ACCOUNT_SERVICE))
-				.getName();
-		new CallAPI(amount, name).execute();
+		new CallAPI(amount).execute();
 
 	}
 

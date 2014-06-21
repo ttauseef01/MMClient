@@ -16,7 +16,6 @@ map.txt
 *.dex
 *.class
 local.properties
-lint.xml
 
 # Android Studio
 .idea/
