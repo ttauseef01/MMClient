@@ -12,11 +12,13 @@ import android.os.AsyncTask;
 
 public class CallAPI extends AsyncTask<Void, Void, String> {
 
-	public final static String apiURL = "https://docs.google.com/forms/d/1Mt9GNWFZOOrW9EOCCS7IVWYKFwtg5FzCGqkm-V83kJA/formResponse?entry.1841478281=";
+	public final static String apiURL = "https://docs.google.com/forms/d/1Mt9GNWFZOOrW9EOCCS7IVWYKFwtg5FzCGqkm-V83kJA/formResponse?";
 	public String amount = "0.0";
+	public String name = "Unkown";
 
-	public CallAPI(String amount) {
+	public CallAPI(String amount, String name) {
 		this.amount = amount;
+		this.name = name;
 	}
 
 	@Override
@@ -25,12 +27,13 @@ public class CallAPI extends AsyncTask<Void, Void, String> {
 		HttpContext localContext = new BasicHttpContext();
 
 		// gps.getLocation();
-		String urlWithAmount = apiURL + amount;
+		String amountEntry = "entry.1841478281=" + amount;
+		String nameEntry = "entry.1271618268=" + name;
+		String urlWithAmount = apiURL + amountEntry + "&" + nameEntry;
 		HttpGet httpGet = new HttpGet(urlWithAmount);
 		String text = null;
 		try {
 			HttpResponse response = httpClient.execute(httpGet, localContext);
-
 			HttpEntity entity = response.getEntity();
 			text = entity.toString();
 
