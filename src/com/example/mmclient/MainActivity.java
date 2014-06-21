@@ -1,16 +1,7 @@
 package com.example.mmclient;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.net.http.AndroidHttpClient;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,9 +16,8 @@ import com.example.mmclient.service.GoogleAuthenticationService;
 
 public class MainActivity extends Activity {
 
-	public final static String apiURL = "http://172.19.4.63:8080/test";
 
-	MMLocationService gps;
+	// MMLocationService gps;
 
 	private AuthenticationService googleAuthenticationService = new GoogleAuthenticationService();
 
@@ -36,6 +26,8 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		// gps = new MMLocationService(this);
+		// gps.scanLocation();
 	}
 
 	@Override
@@ -99,38 +91,6 @@ public class MainActivity extends Activity {
 		}
 	}
 
-	public class CallAPI extends AsyncTask<Void, Void, String> {
 
-		@Override
-		protected String doInBackground(Void... params) {
-			HttpClient httpClient = AndroidHttpClient
-					.newInstance("Money Manager");
-			HttpContext localContext = new BasicHttpContext();
-
-			// gps.getLocation();
-			String urlWithLatitude = apiURL + "?latitude" + gps.getLatitude()
-					+ "&longitude" + gps.getLongitude();
-			gps.getLatitude();
-			HttpGet httpGet = new HttpGet(urlWithLatitude);
-			String text = null;
-			try {
-				HttpResponse response = httpClient.execute(httpGet,
-						localContext);
-
-				HttpEntity entity = response.getEntity();
-				text = entity.toString();
-
-			} catch (Exception e) {
-				return e.getLocalizedMessage();
-			}
-			return text;
-		}
-
-	}
-
-	// This is the method that is called when the submit button is clicked
-	public void hitAPI(View view) {
-		new CallAPI().execute();
-	}
 
 }

@@ -37,6 +37,7 @@ public class SubmitAmountActivity extends Activity {
 		EditText amountEditText = (EditText) findViewById(R.id.amountId);
 		String amount = amountEditText.getText().toString();
 		System.out.println(amount);
+		new CallAPI(amount).execute();
 
 	}
 
