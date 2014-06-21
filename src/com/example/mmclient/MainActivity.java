@@ -16,7 +16,6 @@ import com.example.mmclient.service.GoogleAuthenticationService;
 
 public class MainActivity extends Activity {
 
-
 	// MMLocationService gps;
 
 	private AuthenticationService googleAuthenticationService = new GoogleAuthenticationService();
@@ -67,6 +66,7 @@ public class MainActivity extends Activity {
 			// Authentication is successful, redirecting to submit amount
 			// screen.
 			Intent intent = new Intent(this, SubmitAmountActivity.class);
+			intent.putExtra("USERNAME", username);
 			startActivity(intent);
 		} else {
 			// TODO
@@ -90,7 +90,5 @@ public class MainActivity extends Activity {
 			return rootView;
 		}
 	}
-
-
 
 }

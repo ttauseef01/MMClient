@@ -17,6 +17,7 @@ public class SubmitAmountActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		String username = (String) getIntent().getExtras().get("USERNAME");
 		setContentView(R.layout.activity_submit_amount);
 	}
 
