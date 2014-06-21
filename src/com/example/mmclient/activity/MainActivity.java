@@ -1,4 +1,4 @@
-package com.example.mmclient;
+package com.example.mmclient.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,10 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.mmclient.R;
+import com.example.mmclient.R.id;
+import com.example.mmclient.R.layout;
+import com.example.mmclient.R.menu;
 import com.example.mmclient.service.AuthenticationService;
 import com.example.mmclient.service.GoogleAuthenticationService;
 

@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.example.mmclient.MainActivity"
+    tools:context="com.example.mmclient.activity.MainActivity"
     tools:ignore="MergeRootFrame" >
 
     <EditText
