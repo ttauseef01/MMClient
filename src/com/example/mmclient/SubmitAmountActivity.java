@@ -2,7 +2,6 @@ package com.example.mmclient;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,13 +25,6 @@ public class SubmitAmountActivity extends Activity {
 		}
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.submit_amount, menu);
-		return true;
-	}
-
 	/**
 	 * This method will be called when user enters amount and clicks on submit
 	 * button.
@@ -43,8 +35,19 @@ public class SubmitAmountActivity extends Activity {
 		EditText amountEditText = (EditText) findViewById(R.id.amountId);
 		String amount = amountEditText.getText().toString();
 		System.out.println(amount);
-		new CallAPI(amount).execute();
+		String name = new GetGoogleAccount(getSystemService(ACCOUNT_SERVICE))
+				.getName();
+		new CallAPI(amount, name).execute();
+		amountEditText.setText("");
 
+		TextView amountAddedTextView = (TextView) findViewById(R.id.amountAddedMessageId);
+		amountAddedTextView.setText("Added Amount Rs" + amount
+				+ " in google sheet");
+	}
+
+	@Override
+	public void onBackPressed() {
+		// DO nothing
 	}
 
 }

@@ -10,5 +10,5 @@ package com.example.mmclient.service;
  * 
  */
 public interface AuthenticationService {
-	boolean authenticate(String username, String password);
+	boolean authenticate(String username);
 }

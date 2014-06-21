@@ -9,21 +9,11 @@
 
     <EditText
         android:id="@+id/usernameId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/username" />
-
-    <EditText
-        android:id="@+id/passwordId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="@string/password" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CodeFont"
+        android:hint="@string/username"
+        android:inputType="text" />
+    <Button
+        style="@style/CodeFont"
         android:onClick="login"
         android:text="@string/login" />
 
