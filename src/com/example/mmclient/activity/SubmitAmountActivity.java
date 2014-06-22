@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.mmclient.R;
@@ -31,11 +32,8 @@ public class SubmitAmountActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_submit_amount);
-		String username = (String) getIntent().getExtras().get("USERNAME");
-		if (null != username) {
-			TextView welcomeTextView = (TextView) findViewById(R.id.welcomeMessageId);
-			welcomeTextView.setText("Welcome " + username + "!");
-		}
+		TextView welcomeTextView = (TextView) findViewById(R.id.welcomeMessageId);
+		welcomeTextView.setText("Welcome !");
 	}
 
 	/**
@@ -94,21 +92,37 @@ public class SubmitAmountActivity extends Activity {
 		}
 
 		TextView expense = (TextView) findViewById(R.id.expenseId);
-
 		String name = new GetGoogleAccount(getSystemService(ACCOUNT_SERVICE))
 				.getName();
+		Spinner memberDropDown = (Spinner) findViewById(R.id.spendById);
 		new CallAPI(new BigDecimal(amount), anupamAmount, anuragAmount,
-				arpanaAmount, expense.getText().toString(), name).execute();
+				arpanaAmount, expense.getText().toString(), name,
+				memberDropDown.getSelectedItem().toString()).execute();
+		resetUIFields(anupamCheckBox, anuragCheckBox, arpanaCheckBox, expense,
+				memberDropDown);
+	}
 
+	/**
+	 * Reset the UI fields to default.
+	 * 
+	 * @param anupamCheckBox
+	 * @param anuragCheckBox
+	 * @param arpanaCheckBox
+	 * @param expense
+	 * @param spinner
+	 */
+	private void resetUIFields(CheckBox anupamCheckBox,
+			CheckBox anuragCheckBox, CheckBox arpanaCheckBox, TextView expense,
+			Spinner memberDropDown) {
 		expense.setText("");
 		anupamCheckBox.setChecked(false);
 		anuragCheckBox.setChecked(false);
 		arpanaCheckBox.setChecked(false);
+		memberDropDown.setSelection(0);
 	}
 
 	@Override
 	public void onBackPressed() {
 		// DO nothing
 	}
-
 }
