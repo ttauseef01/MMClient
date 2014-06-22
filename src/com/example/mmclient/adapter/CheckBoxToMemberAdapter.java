@@ -8,7 +8,7 @@ import java.util.List;
 
 import android.widget.CheckBox;
 
-import com.example.mmclient.calculator.Member;
+import com.example.mmclient.domain.Member;
 
 /**
  * @author SWAPNIL

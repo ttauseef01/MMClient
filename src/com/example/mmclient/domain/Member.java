@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.mmclient.calculator;
+package com.example.mmclient.domain;
 
 /**
  * @author SWAPNIL

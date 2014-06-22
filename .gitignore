@@ -30,3 +30,5 @@ local.properties
 *~
 *.swp
 *.bak
+
+lint.xml

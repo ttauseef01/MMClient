@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import com.example.mmclient.R;
 import com.example.mmclient.adapter.CheckBoxToMemberAdapter;
-import com.example.mmclient.calculator.Member;
-import com.example.mmclient.calculator.MemberAndAmount;
-import com.example.mmclient.calculator.SimpleCalculator;
+import com.example.mmclient.domain.Member;
+import com.example.mmclient.domain.MemberAndAmount;
+import com.example.mmclient.domain.SimpleCalculator;
 import com.example.mmclient.service.CallAPI;
 import com.example.mmclient.service.GetGoogleAccount;
 

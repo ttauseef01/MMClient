@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="group_members">
+        <item>Anupam</item>
+        <item>Arapana</item>
+        <item>Swapnil</item>
+        <item>Ashish</item>
+        <item>Amit</item>
+        <item>Tauseef</item>
+    </string-array>
+
+</resources>
