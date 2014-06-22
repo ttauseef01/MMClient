@@ -6,15 +6,4 @@
     android:orientation="vertical"
     tools:context="com.example.mmclient.activity.MainActivity"
     tools:ignore="MergeRootFrame" >
-
-    <EditText
-        android:id="@+id/usernameId"
-        style="@style/CodeFont"
-        android:hint="@string/username"
-        android:inputType="text" />
-    <Button
-        style="@style/CodeFont"
-        android:onClick="login"
-        android:text="@string/login" />
-
 </LinearLayout>

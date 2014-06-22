@@ -23,16 +23,18 @@ public class CallAPI extends AsyncTask<Void, Void, String> {
 
 	public String name = "Unkown";
 	public String expense = "Unkown";
+	public String spentBy = "Unkown";
 
 	public CallAPI(BigDecimal totalAmount, BigDecimal anupamAmount,
 			BigDecimal anuragAmount, BigDecimal arpanaAmount, String expense,
-			String name) {
+			String name, String spentBy) {
 		this.totalAmount = totalAmount;
 		this.anupamAmount = anupamAmount;
 		this.anuragAmount = anuragAmount;
 		this.arpanaAmount = arpanaAmount;
 		this.expense = expense;
 		this.name = name;
+		this.spentBy = spentBy;
 	}
 
 	@Override
@@ -40,17 +42,17 @@ public class CallAPI extends AsyncTask<Void, Void, String> {
 		HttpClient httpClient = AndroidHttpClient.newInstance("Money Manager");
 		HttpContext localContext = new BasicHttpContext();
 
-		// gps.getLocation();
 		String amountEntry = "entry_1044836361=" + totalAmount.doubleValue();
 		String anupamEntry = "entry.1196913981=" + anupamAmount.doubleValue();
 		String anuragEntry = "entry.342210625=" + anuragAmount.doubleValue();
 		String arpanaEntry = "entry.86740398=" + arpanaAmount.doubleValue();
 		String nameEntry = "entry.895685265=" + name;
 		String expenseEntry = "entry_230100034=" + expense;
+		String spentByEntry = "entry.1818080019=" + spentBy;
 
 		String urlWithAmount = apiURL + amountEntry + "&" + anupamEntry + "&"
 				+ anuragEntry + "&" + arpanaEntry + "&" + nameEntry + "&"
-				+ expenseEntry;
+				+ expenseEntry + "&" + spentByEntry;
 		HttpGet httpGet = new HttpGet(urlWithAmount);
 		String text = null;
 		try {
@@ -63,5 +65,4 @@ public class CallAPI extends AsyncTask<Void, Void, String> {
 		}
 		return text;
 	}
-
 }
