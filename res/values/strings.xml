@@ -10,5 +10,10 @@
     <string name="login">Login</string>
     <string name="title_activity_submit_amount">Enter Amount</string>
     <string name="amount">Amount</string>
+    <string name="anupam">Anupam</string>
+    <string name="anurag">Anurag</string>
+    <string name="arpana">Arpana</string>
+    
+    <string name="expense">Expense</string>
 
 </resources>

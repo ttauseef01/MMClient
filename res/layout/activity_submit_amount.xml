@@ -4,19 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SubmitAmountActivity" >    
+    tools:context=".SubmitAmountActivity" >
+
+    <TextView
+        android:id="@+id/welcomeMessageId"
+        style="@style/CodeFont" />
+
+    <TextView
+        android:id="@+id/amountAddedMessageId"
+        style="@style/CodeFont" />
+
+    <EditText
+        android:id="@+id/expenseId"
+        style="@style/CodeFont"
+        android:hint="@string/expense"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/amountId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CodeFont"
         android:hint="@string/amount"
         android:inputType="number" />
 
+    <CheckBox
+        android:id="@+id/anupamId"
+        style="@style/CodeFont"
+        android:text="@string/anupam" />
+
+    <CheckBox
+        android:id="@+id/anuragId"
+        style="@style/CodeFont"
+        android:text="@string/anurag" />
+
+    <CheckBox
+        android:id="@+id/arpanaId"
+        style="@style/CodeFont"
+        android:text="@string/arpana" />
+
     <Button
         android:id="@+id/submitId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/CodeFont"
         android:onClick="submitAmount"
         android:text="@string/submit" />
 

@@ -12,7 +12,7 @@ package com.example.mmclient.service;
 public class GoogleAuthenticationService implements AuthenticationService {
 
 	@Override
-	public boolean authenticate(String username, String password) {
+	public boolean authenticate(String username) {
 		// TODO authenticate using Google APIS
 		return true;
 	}

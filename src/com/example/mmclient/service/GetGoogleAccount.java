@@ -1,4 +1,4 @@
-package com.example.mmclient;
+package com.example.mmclient.service;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
