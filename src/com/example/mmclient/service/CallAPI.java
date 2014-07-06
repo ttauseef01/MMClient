@@ -46,9 +46,11 @@ public class CallAPI extends AsyncTask<Void, Void, String> {
 		String anupamEntry = "entry.1196913981=" + anupamAmount.doubleValue();
 		String anuragEntry = "entry.342210625=" + anuragAmount.doubleValue();
 		String arpanaEntry = "entry.86740398=" + arpanaAmount.doubleValue();
-		String nameEntry = "entry.895685265=" + name;
-		String expenseEntry = "entry_230100034=" + expense;
-		String spentByEntry = "entry.1818080019=" + spentBy;
+		String nameEntry = "entry.895685265=" + name.replaceAll(" ", "%20");
+		String expenseEntry = "entry_230100034="
+				+ expense.replaceAll(" ", "%20");
+		String spentByEntry = "entry.1818080019="
+				+ spentBy.replaceAll(" ", "%20");
 
 		String urlWithAmount = apiURL + amountEntry + "&" + anupamEntry + "&"
 				+ anuragEntry + "&" + arpanaEntry + "&" + nameEntry + "&"

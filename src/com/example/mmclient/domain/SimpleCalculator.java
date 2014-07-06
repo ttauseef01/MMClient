@@ -4,6 +4,8 @@
 package com.example.mmclient.domain;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +34,8 @@ public class SimpleCalculator {
 			}
 		}
 		BigDecimal dividedAmount = memberAndAmounts.isEmpty() ? BigDecimal.ZERO
-				: totalAmount.divide(new BigDecimal(memberAndAmounts.size()));
+				: totalAmount.divide(new BigDecimal(memberAndAmounts.size()),
+						new MathContext(7, RoundingMode.FLOOR));
 		for (MemberAndAmount memberAndAmount : memberAndAmounts) {
 			memberAndAmount.setAmount(dividedAmount);
 		}
