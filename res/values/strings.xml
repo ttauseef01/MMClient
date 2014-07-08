@@ -16,10 +16,12 @@
     <string name="expense">Expense description</string>
 
     <string-array name="spender_list">
-        <item>Spent By</item>
+        <item>Spend By</item>
         <item>Anupam</item>
         <item>Anurag</item>
         <item>Arpana</item>
+        <item>Tauseef</item>
+        <item>Swapnil</item>
     </string-array>
 
 </resources>

@@ -1,66 +1,61 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SubmitAmountActivity" >
-
-    <TextView
-        android:id="@+id/welcomeMessageId"
-        style="@style/CodeFont" />
-
-    <TextView
-        android:id="@+id/amountAddedMessageId"
-        style="@style/CodeFont" />
-
-    <EditText
-        android:id="@+id/expenseId"
-        style="@style/CodeFont"
-        android:hint="@string/expense"
-        android:inputType="text" />
+    android:layout_height="match_parent" >
 
     <LinearLayout
-        android:id="@+id/spenderLayoutId"
-        android:layout_width="wrap_content"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/welcomeMessageId"
+            style="@style/CodeFont" />
+
+        <TextView
+            android:id="@+id/amountAddedMessageId"
+            style="@style/CodeFont" />
 
         <EditText
-            android:id="@+id/amountId"
+            android:id="@+id/expenseId"
             style="@style/CodeFont"
-            android:hint="@string/amount"
-            android:inputType="number" />
+            android:hint="@string/expense"
+            android:inputType="text" />
 
-        <Spinner
-            android:id="@+id/spendById"
+        <LinearLayout
+            android:id="@+id/spenderLayoutId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/amountId"
+                style="@style/CodeFont"
+                android:hint="@string/amount"
+                android:inputType="number" />
+
+            <Spinner
+                android:id="@+id/spendById"
+                style="@style/CodeFont"
+                android:entries="@array/spender_list" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/grpMembers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <TextView
             style="@style/CodeFont"
-            android:entries="@array/spender_list" />
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/submitId"
+            style="@style/CodeFont"
+            android:onClick="submitAmount"
+            android:text="@string/submit" />
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/anupamId"
-        style="@style/CodeFont"
-        android:text="@string/anupam" />
-
-    <CheckBox
-        android:id="@+id/anuragId"
-        style="@style/CodeFont"
-        android:text="@string/anurag" />
-
-    <CheckBox
-        android:id="@+id/arpanaId"
-        style="@style/CodeFont"
-        android:text="@string/arpana" />
-
-    <TextView
-        style="@style/CodeFont"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/submitId"
-        style="@style/CodeFont"
-        android:onClick="submitAmount"
-        android:text="@string/submit" />
-
-</LinearLayout>
+</ScrollView>

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -34,6 +35,16 @@ public class SubmitAmountActivity extends Activity {
 		setContentView(R.layout.activity_submit_amount);
 		TextView welcomeTextView = (TextView) findViewById(R.id.welcomeMessageId);
 		welcomeTextView.setText("Welcome !");
+		String[] groupMembers = getResources().getStringArray(
+				R.array.group_members);
+		LinearLayout grpMembers = (LinearLayout) findViewById(R.id.grpMembers);
+		for (int i = 0; i < groupMembers.length; i++) {
+			CheckBox cb = new CheckBox(this);
+			cb.setText(groupMembers[i]);
+			cb.setTag(groupMembers[i]);
+			//cb.setId(i + 10);
+			grpMembers.addView(cb);
+		}
 	}
 
 	/**
@@ -61,12 +72,13 @@ public class SubmitAmountActivity extends Activity {
 	 */
 	private void process(String amount) {
 		List<CheckBox> checkBoxs = new ArrayList<CheckBox>();
-		CheckBox anupamCheckBox = (CheckBox) findViewById(R.id.anupamId);
-		checkBoxs.add(anupamCheckBox);
-		CheckBox anuragCheckBox = (CheckBox) findViewById(R.id.anuragId);
-		checkBoxs.add(anuragCheckBox);
-		CheckBox arpanaCheckBox = (CheckBox) findViewById(R.id.arpanaId);
-		checkBoxs.add(arpanaCheckBox);
+		LinearLayout grpMembers = (LinearLayout) findViewById(R.id.grpMembers);
+		String[] groupMembers = getResources().getStringArray(
+				R.array.group_members);
+		for (int i = 0; i < groupMembers.length; i++)
+		{
+			checkBoxs.add((CheckBox)grpMembers.findViewWithTag(groupMembers[i]));
+		}
 
 		List<Member> members = CheckBoxToMemberAdapter.toMembers(checkBoxs);
 		List<MemberAndAmount> memberAndAmounts = SimpleCalculator.calculate(
@@ -98,7 +110,7 @@ public class SubmitAmountActivity extends Activity {
 		new CallAPI(new BigDecimal(amount), anupamAmount, anuragAmount,
 				arpanaAmount, expense.getText().toString(), name,
 				memberDropDown.getSelectedItem().toString()).execute();
-		resetUIFields(anupamCheckBox, anuragCheckBox, arpanaCheckBox, expense,
+		resetUIFields(checkBoxs, expense,
 				memberDropDown);
 	}
 
@@ -111,13 +123,13 @@ public class SubmitAmountActivity extends Activity {
 	 * @param expense
 	 * @param spinner
 	 */
-	private void resetUIFields(CheckBox anupamCheckBox,
-			CheckBox anuragCheckBox, CheckBox arpanaCheckBox, TextView expense,
+	private void resetUIFields(List<CheckBox> checkBoxs, TextView expense,
 			Spinner memberDropDown) {
 		expense.setText("");
-		anupamCheckBox.setChecked(false);
-		anuragCheckBox.setChecked(false);
-		arpanaCheckBox.setChecked(false);
+		for(int i=0; i<checkBoxs.size();i++)
+		{
+			checkBoxs.get(i).setChecked(false);
+		}
 		memberDropDown.setSelection(0);
 	}
 
